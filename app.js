@@ -1,13 +1,18 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
+var hike = require('./routes/hike');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+hike = require('./routes/hike');
+
 var app = express();
+app.get('/hikes', hike.index);
+app.post('/add_hike', hike.add_hike);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
