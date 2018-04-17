@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <title>The Sticky Papers Co.</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/stack-interface.css" rel="stylesheet" type="text/css" media="all">
         <link href="css/socicon.css" rel="stylesheet" type="text/css" media="all" />
@@ -11,6 +11,7 @@
         <link href="css/theme.css" rel="stylesheet" type="text/css" media="all" />
         <link href="css/custom.css" rel="stylesheet" type="text/css" media="all" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:200,300,400,400i,500,600,700" rel="stylesheet"> 
+        <link rel="icon" type="image/png" href="/img/stripe.png" />
         <script src="https://checkout.stripe.com/checkout.js"></script>
     </head>
     <body data-smooth-scroll-offset="77">
@@ -20,7 +21,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-3 col-md-2">
-                                <a href="index.html"> <img class="logo logo-dark" alt="logo" src="img/logo-dark.png"> <img class="logo logo-light" alt="logo" src="img/logo-light.png"> </a>
+                                <a href="index.html"> <img class="logo logo-dark" alt="logo" src="img/logo-light.png"> <img class="logo logo-light" alt="logo" src="img/logo-light.png"> </a>
                             </div>
                             <div class="col-9 col-md-10 text-right">
                                 <a href="#" class="hamburger-toggle" data-toggle-class="#menu1;hidden-xs hidden-sm"> <i class="icon icon--sm stack-interface stack-menu"></i> </a>
@@ -38,7 +39,7 @@
                             </div>
                             <div class="col-lg-11 col-md-12 text-right text-left-xs text-left-sm">
                                 <div class="bar__module">
-                                    <a class="btn btn--sm btn--primary type--uppercase" href="#purchase-template"> <span class="btn__text">
+                                    <a class="btn btn--sm btn--primary type--uppercase"> <span class="btn__text">
                                     Buy A Bottle
                                 </span> </a>
                                 </div>
@@ -61,17 +62,17 @@
 
                                <span class="block type--fine-print">or click <a href="index.html">here to buy a bottle but in smaller text.</a></span> </div>
                         </div>
-                        <div class="col-lg-7 col-md-5 col-12"> <img alt="Image" src="img/device-2.png"> </div>
+                        <div class="col-lg-7 col-md-5 col-12" style="padding-top: 55px;"> <img alt="Image" src="img/device-2.png"> </div>
                     </div>
                 </div>
             </section>
             <footer class="footer-4 space--sm text-center-xs">
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm-6"> <img alt="Image" class="logo logo-dark" src="img/stripe.png"><br><!--  <span class="block--xs">Tongue-free rolling paper glue</span>  --></div>
+                        <div class="col-sm-6"> <img alt="Image" class="logo logo-dark" src="img/logo-light.png"><br> <span class="block--xs">Tongue-free rolling paper glue</span> </div>
                         <div class="col-sm-6">
                             <h5 class="text-left-sm">Sign up for new product releases and special offers!</h5>
-                            <form class="row" action="" data-success="Thanks for signing up.  Please check your inbox for a confirmation email." data-error="Please provide your email address.">
+                            <form class="row" method="POST" action="https://api.sendgrid.com/v3/contactdb/recipients" data-success="Thanks for signing up.  Please check your inbox for a confirmation email." data-error="Please provide your email address.">
                                 <div class="col-sm-7"> <input class="validate-required validate-email" type="text" name="EMAIL" placeholder="Email Address"> </div>
                                 <div class="col-sm-5"> <button type="submit" class="btn btn--primary type--uppercase">Subscribe</button> </div>
                                 <div style="position: absolute; left: -5000px" aria-hidden="true"> <input type="text" name="b_77142ece814d3cff52058a51f_f300c9cce8" tabindex="-1" value=""> </div>
@@ -80,13 +81,13 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-6"> 
-                            <!-- <span class="type--fine-print">© <span class="update-year"></span> Company Inc.</span>  --><a class="type--fine-print" href="mailto:hello@stickypapers.co">hello@stickypapers.co</a>
+                            <!-- <span class="type--fine-print">© <span class="update-year"></span> Company Inc.</span> <a class="type--fine-print" href="#">Privacy Policy</a> <a class="type--fine-print" href="#">Legal</a>  -->
                         </div>
                         <div class="col-sm-6 text-right text-center-xs block--xs">
                             <ul class="social-list list-inline list--hover">
-                                <li><a href="https://www.twitter.com/stickypapersco"><i class="socicon socicon-twitter icon icon--xs"></i></a></li>
-                                <li><a href="https://www.facebook.com/stickypapersco"><i class="socicon socicon-facebook icon icon--xs"></i></a></li>
-                                <li><a href="https://www.instagram.com/stickypapersco"><i class="socicon socicon-instagram icon icon--xs"></i></a></li>
+                                <li><a href="#"><i class="socicon socicon-twitter icon icon--xs"></i></a></li>
+                                <li><a href="#"><i class="socicon socicon-facebook icon icon--xs"></i></a></li>
+                                <li><a href="#"><i class="socicon socicon-instagram icon icon--xs"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -99,7 +100,7 @@
         <script src="js/scripts.js"></script>
         <script type="text/javascript">
 
-            var checkoutHandler = StripeCheckout.configure({
+        var checkoutHandler = StripeCheckout.configure({
               key: "pk_test_MFfbY7MJNdAfiej6EQMreG8w",
               locale: "auto"
             });
@@ -108,12 +109,12 @@
             button.addEventListener("click", function(ev) {
               checkoutHandler.open({
                 name: "The Sticky Papers Co.",
-                description: "One 10ml bottle of rolling paper glue.",
-                image: "/img/stripe.png",
-                amount: "1199",
-                locale: "auto",
-                zipCode: "true",
-                shippingAddress: "true",
+                description: "One 10ml bottle - Shipped!",
+                image: "img/stripe.png",
+                amount: 1199,
+                zipCode: true,
+                shippingAddress: true,
+                billingAddress: true,
                 token: handleToken
               });
             });
