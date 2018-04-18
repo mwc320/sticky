@@ -100,7 +100,7 @@
         <script src="js/scripts.js"></script>
         <script type="text/javascript">
 
-        var checkoutHandler = StripeCheckout.configure({
+            var checkoutHandler = StripeCheckout.configure({
               key: "pk_test_MFfbY7MJNdAfiej6EQMreG8w",
               locale: "auto"
             });
@@ -129,24 +129,20 @@
                 if (output.status === "succeeded")
                   document.getElementById("shop").innerHTML = "<p>Purchase complete!</p>";
               })
+              
+              .then(response => {
+                if (!response.ok)
+                  throw response;
+                return response.json();
+              })
+              .then(output => {
+                console.log("Purchase succeeded:", output);
+              })
+              .catch(err => {
+                console.log("Purchase failed:", err);
+              })
             }
 
-            fetch("/charge", {
-              method: "POST",
-              headers: {"Content-Type": "application/json"},
-              body: JSON.stringify(token)
-            })
-            .then(response => {
-              if (!response.ok)
-                throw response;
-              return response.json();
-            })
-            .then(output => {
-              console.log("Purchase succeeded:", output);
-            })
-            .catch(err => {
-              console.log("Purchase failed:", err);
-            })
         </script>
 
     </body>
